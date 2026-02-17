@@ -1,16 +1,29 @@
-#include<iostream>
+#include <iostream>
+#include <cmath>
 using namespace std;
-int fibbo(int n){
-    //base case
-    if(n==0 or n==1){
-        return n;
+
+int inverseNumber(int n) {
+    int pos = 1;
+    int inv = 0;
+
+    while (n > 0) {
+        int dig = n % 10;
+
+        inv += pos * pow(10, dig - 1);
+
+        n /= 10;
+        pos++;
     }
-    //recursion
-    return fibbo(n-1)+fibbo(n-2);
+
+    return inv;
 }
-int main(){
+
+int main() {
     int n;
-    cin>>n;
-    cout<<fibbo(n)<<endl;
+    cin >> n;
+
+
+    cout << inverseNumber(n);
+
     return 0;
 }
